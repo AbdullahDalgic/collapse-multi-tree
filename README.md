@@ -11,9 +11,13 @@
 ## Install
 
 ```bash
-    npm install nested-collapse
-    yarn add nested-collapse
+  npm install nested-collapse
+  yarn add nested-collapse
 ```
+
+## Live Demo
+
+Check out the live demo [here](https://nested-collapse.vercel.app/).
 
 ## Example Usage
 
@@ -25,9 +29,49 @@ Here's an example of how `nested-collapse` looks in action:
 
 ```tsx
 import React from 'react';
-import NestedCollapse from "nested-collapse";
+import NestedCollapse, { ICollapseData } from "nested-collapse";
 
 const App: React.FC = () => {
+  const data: ICollapseData[] = [
+    {
+      id: 1,
+      title: "Collapse 1",
+      children: [
+        {
+          id: 3,
+          title: "Collapse 1.1",
+          parentId: 1,
+          children: [
+            {
+              id: 4,
+              title: "Collapse 1.1.1",
+              parentId: 3,
+              children: [
+                {
+                  id: 5,
+                  title: "Collapse 1.1.1.1",
+                  parentId: 4,
+                  children: [],
+                },
+              ],
+            },
+            {
+              id: 5,
+              title: "Collapse 1.1.2",
+              parentId: 3,
+              children: [],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "Collapse 2",
+      children: [],
+    },
+  ];
+
   return (
     <>
       <NestedCollapse
@@ -38,7 +82,7 @@ const App: React.FC = () => {
         ]} // optional
 
         data={data}
-        isLoading={isLoading}
+        isLoading={false} // optional
 
         AddItemButtonTitle={() => (<>Add Item</>)}
         AddItemComponent={({ parentId }) => (
@@ -53,7 +97,9 @@ const App: React.FC = () => {
           </>
         )}
         EmptyComponent={() => (
-          // If the children object is empty, the component required to provide the empty appearance.
+          <>
+            // If the children object is empty, the component required to provide the empty appearance.
+          </>
         )}
       />
     </>
@@ -62,7 +108,9 @@ const App: React.FC = () => {
 ```
 
 ### Props
+
 `NestedCollapse` component accepts the following props:
+
 - **showHeaderBorder** (boolean, optional): Controls whether the borders around the collapse headers are visible. When set to true, borders are shown.;
 - **showBodyBorder** (boolean, optional): Determines whether the border on the left side of the collapsible area is visible. When set to true, a left border is displayed.;
 - **colors** (string[], optional): An array of strings representing colors, sorted according to the tree's branch structure, used to visually distinguish different levels.;
@@ -74,8 +122,6 @@ const App: React.FC = () => {
 - **HeaderCloseIcon** (React.ReactNode, optional): The icon displayed when the collapse header is closed, such as a right-facing arrow.;
 - **HoverComponent** (React.FC, required): A menu that appears when hovering over the collapse, allowing actions like adding a new item or deleting an existing one. The addChild function creates a new child element.;
 - **EmptyComponent** (React.ReactNode, optional): The component displayed when a collapse has no child elements, such as a message saying 'No items added yet.'
-
-
 
 ### License
 

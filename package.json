@@ -1,7 +1,7 @@
 {
   "name": "nested-collapse",
   "description": "A React component for nested collapse.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "author": "Abdullah Dalgıç <abdullahdalgic33@gmail.com> (http://www.abdullahdalgic.com.tr)",
   "license": "MIT",
