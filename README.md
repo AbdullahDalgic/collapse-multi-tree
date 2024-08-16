@@ -29,48 +29,45 @@ Here's an example of how `nested-collapse` looks in action:
 
 ```tsx
 import React from 'react';
-import NestedCollapse, { ICollapseData } from "nested-collapse";
+import NestedCollapse, { ICollapseData, TreeData } from "nested-collapse";
 
 const App: React.FC = () => {
-  const data: ICollapseData[] = [
+  const data: ICollapseData[] = TreeData([
     {
       id: 1,
       title: "Collapse 1",
-      children: [
-        {
-          id: 3,
-          title: "Collapse 1.1",
-          parentId: 1,
-          children: [
-            {
-              id: 4,
-              title: "Collapse 1.1.1",
-              parentId: 3,
-              children: [
-                {
-                  id: 5,
-                  title: "Collapse 1.1.1.1",
-                  parentId: 4,
-                  children: [],
-                },
-              ],
-            },
-            {
-              id: 5,
-              title: "Collapse 1.1.2",
-              parentId: 3,
-              children: [],
-            },
-          ],
-        },
-      ],
+      // Other optional props may remain
     },
     {
       id: 2,
       title: "Collapse 2",
-      children: [],
     },
-  ];
+    {
+      id: 3,
+      title: "Collapse 1.1",
+      parentId: 1,
+    },
+    {
+      id: 4,
+      title: "Collapse 1.2",
+      parentId: 1,
+    },
+    {
+      id: 5,
+      title: "Collapse 1.1.1",
+      parentId: 3,
+    },
+    {
+      id: 6,
+      title: "Collapse 1.1.2",
+      parentId: 3,
+    },
+    {
+      id: 7,
+      title: "Collapse 1.1.1.1",
+      parentId: 5,
+    },
+  ]);
 
   return (
     <>
@@ -78,7 +75,7 @@ const App: React.FC = () => {
         showHeaderBorder={true} // optional
         showBodyBorder={true} // optional
         colors={[
-          // A string array containing colors, sorted according to the branch structure of the tree.
+          // A string array containing colors, corresponding to the levels of the tree branches.
         ]} // optional
 
         data={data}
@@ -111,21 +108,21 @@ const App: React.FC = () => {
 
 `NestedCollapse` component accepts the following props:
 
-- **showHeaderBorder** (boolean, optional): Controls whether the borders around the collapse headers are visible. When set to true, borders are shown.;
-- **showBodyBorder** (boolean, optional): Determines whether the border on the left side of the collapsible area is visible. When set to true, a left border is displayed.;
-- **colors** (string[], optional): An array of strings representing colors, sorted according to the tree's branch structure, used to visually distinguish different levels.;
-- **data** (array, required): Contains the data structure for the collapsible content, including titles, content, and child elements for each collapse.;
-- **isLoading** (boolean, optional): Indicates the loading state of the data. When set to true, a loading indicator is shown instead of the collapse content.;
-- **AddItemButtonTitle** (React.ReactNode, optional): Defines the content of the button used to add a new main collapse. This could be a text or icon component.;
-- **AddItemComponent** (React.FC, required): The form component required to add a new object within the collapse, providing necessary fields to the user.;
-- **HeaderOpenIcon** (React.ReactNode, optional): The icon displayed when the collapse header is open, such as a downward-facing arrow.;
-- **HeaderCloseIcon** (React.ReactNode, optional): The icon displayed when the collapse header is closed, such as a right-facing arrow.;
-- **HoverComponent** (React.FC, required): A menu that appears when hovering over the collapse, allowing actions like adding a new item or deleting an existing one. The addChild function creates a new child element.;
+- **showHeaderBorder** (boolean, optional): Controls whether the borders around the collapse headers are visible. When set to true, borders are shown.
+- **showBodyBorder** (boolean, optional): Determines whether the border on the left side of the collapsible area is visible. When set to true, a left border is displayed.
+- **colors** (string[], optional): An array of strings representing colors, sorted according to the tree's branch structure, used to visually distinguish different levels.
+- **data** (array, required): Contains the data structure for the collapsible content, including titles, content, and child elements for each collapse.
+- **isLoading** (boolean, optional): Indicates the loading state of the data. When set to true, a loading indicator is shown instead of the collapse content.
+- **AddItemButtonTitle** (React.ReactNode, optional): Defines the content of the button used to add a new main collapse. This could be a text or icon component.
+- **AddItemComponent** (React.FC, required): The form component required to add a new object within the collapse, providing necessary fields to the user.
+- **HeaderOpenIcon** (React.ReactNode, optional): The icon displayed when the collapse header is open, such as a downward-facing arrow.
+- **HeaderCloseIcon** (React.ReactNode, optional): The icon displayed when the collapse header is closed, such as a right-facing arrow.
+- **HoverComponent** (React.FC, required): A menu that appears when hovering over the collapse, allowing actions like adding a new item or deleting an existing one. The addChild function creates a new child element.
 - **EmptyComponent** (React.ReactNode, optional): The component displayed when a collapse has no child elements, such as a message saying 'No items added yet.'
 
 ### License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/AbdullahDalgic/nested-collapse/blob/master/LICENSE) file for details.
 
 ### Contributing
 

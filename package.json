@@ -1,7 +1,7 @@
 {
   "name": "nested-collapse",
   "description": "A React component for nested collapse.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "author": "Abdullah Dalgıç <abdullahdalgic33@gmail.com> (http://www.abdullahdalgic.com.tr)",
   "license": "MIT",
@@ -19,7 +19,15 @@
     "component",
     "multitreecollapse",
     "multitree",
-    "react-component"
+    "react-component",
+    "react-collapse",
+    "react-nested-collapse",
+    "react-multi-collapse",
+    "react-tree-collapse",
+    "accordion",
+    "react-accordion",
+    "react-nested-accordion",
+    "react-multi-accordion"
   ],
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
