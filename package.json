@@ -1,0 +1,41 @@
+{
+  "name": "nested-collapse",
+  "description": "A React component for nested collapse.",
+  "version": "1.0.0",
+  "private": false,
+  "author": "Abdullah Dalgıç <abdullahdalgic33@gmail.com> (http://www.abdullahdalgic.com.tr)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AbdullahDalgic/nested-collapse/issues"
+  },
+  "homepage": "https://github.com/AbdullahDalgic/nested-collapse#readme",
+  "keywords": [
+    "nested",
+    "collapse",
+    "nested-collapse",
+    "multi",
+    "tree",
+    "react",
+    "component",
+    "multitreecollapse",
+    "multitree",
+    "react-component"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.0.0",
+    "styled-components": "^6.1.12",
+    "polished": "^4.3.1"
+  }
+}
