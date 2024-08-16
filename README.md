@@ -19,7 +19,7 @@
 
 Here's an example of how `nested-collapse` looks in action:
 
-![Nested Collapse Screenshot](images/collapse.jpg)
+![Nested Collapse Screenshot](https://github.com/AbdullahDalgic/nested-collapse/raw/master/images/collapse.jpg)
 
 ## Usage
 
